@@ -38,10 +38,12 @@ public class MainPageTest {
 
     @Test
     public void visible() {
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-        WebElement VisibleButton = driver.findElement(By.cssSelector("#visibleAfter"));
-        wait.until(ExpectedConditions.visibilityOf(VisibleButton));
-        assertTrue(VisibleButton.isDisplayed(),"Кнопка не стала видимой");
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(4));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#visibleAfter")));
+
+        WebElement visibleButton = driver.findElement(By.cssSelector("#visibleAfter"));
+
+        assertTrue(visibleButton.isDisplayed(),"Кнопка не стала видимой");
     }
 
 }
